@@ -17,16 +17,11 @@
 	#endif
 #endif
 
-#ifdef T3_IS_DSO
-	#ifdef T3_BUILD_DSO
-		#define T3_SHARED_API T3_SHARED_EXPORT
-	#else
-		#define T3_SHARED_API T3_SHARED_IMPORT
-	#endif
-	#define T3_SHARED_STATIC T3_SHARED_LOCAL
+#ifdef T3_SHARED_BUILD_DSO
+	#define T3_SHARED_API T3_SHARED_EXPORT
 #else
-	#define T3_SHARED_API
-	#define T3_SHARED_STATIC
+	#define T3_SHARED_API T3_SHARED_IMPORT
 #endif
+#define T3_SHARED_STATIC T3_SHARED_LOCAL
 
 #endif
