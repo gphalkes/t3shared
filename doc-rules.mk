@@ -7,12 +7,13 @@ endif
 
 T3PATH:=$(dir $(lastword $(MAKEFILE_LIST)))
 T3DOCS:=doxygen.conf DoxygenLayout.xml
+T3UNAME:=$(shell echo '$(T3NAME)' | tr [[:lower:]] [[:upper:]])
 
 doxygen: doxygen.conf DoxygenLayout.xml
 	doxygen doxygen.conf
 
 doxygen.conf: $(T3PATH)/doc/doxygen.conf
-	sed 's/<NAME>/libt3$(T3NAME)/g' '$<' > '$@'
+	sed 's/<NAME>/libt3$(T3NAME)/g;s/<UNAME>/$(T3UNAME)/g;s/<DEFINITIONS>/$(DOXYGENDEFS)/g' '$<' > '$@'
 
 DoxygenLayout.xml: $(T3PATH)/doc/DoxygenLayout.xml
 	cp '$<' '$@'
