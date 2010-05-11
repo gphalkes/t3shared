@@ -7,7 +7,7 @@ for i in edit key window unicode ; do
 	hg clone "sftp://www.ghalkes.nl/hgrepos/$i"
 done
 
-if ! [ -L makesys] ; then
+if ! [ -L makesys ] ; then
 	if ! [ -d ../makesys ] ; then
 		( cd .. ; hg clone sftp://www.ghalkes.nl/hgrepos/makesys )
 	fi
