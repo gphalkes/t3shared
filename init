@@ -1,0 +1,15 @@
+#!/bin/bash
+
+cd `dirname "$0"`/..
+for i in edit key window unicode ; do
+	[ -d "$i" ] && continue
+
+	hg clone "sftp://www.ghalkes.nl/hgrepos/$i"
+done
+
+if ! [ -L makesys] ; then
+	if ! [ -d ../makesys ] ; then
+		( cd .. ; hg clone sftp://www.ghalkes.nl/hgrepos/makesys )
+	fi
+	ln -s ../makesys .
+fi
