@@ -1,0 +1,8 @@
+#!/bin/bash
+
+cd `dirname "$0"`/..
+for i in * ; do
+	[ -d "$i" ] || continue
+	echo "==== Executing $@ for $i ===="
+	( cd "$i" ; "$@" )
+done
