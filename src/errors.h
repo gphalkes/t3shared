@@ -22,6 +22,14 @@
 #define T3_ERR_BAD_ARG (-125)
 /** Error code: out of memory. */
 #define T3_ERR_OUT_OF_MEMORY (-124)
+/** Error code: no information found for the terminal in the terminfo database. */
+#define T3_ERR_TERMINFODB_NOT_FOUND (-123)
+/** Error code: the file descriptor is a hard-copy terminal. */
+#define T3_ERR_HARDCOPY_TERMINAL (-122)
+/** Error code: terminal provides too limited possibilities for the library to function. */
+#define T3_ERR_TERMINAL_TOO_LIMITED (-121)
+/** Error code: no terminal given and @c TERM environment variable not set. */
+#define T3_ERR_NO_TERM (-120)
 #endif
 /*@}*/
 
