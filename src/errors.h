@@ -1,6 +1,8 @@
 #ifndef T3_SHARED_ERRORS_H
 #define T3_SHARED_ERRORS_H
 
+#include "shared_api.h"
+
 /** @file */
 /** @addtogroup t3shared_other */
 /** @{ */
@@ -38,5 +40,13 @@
    included each symbol will be defined and only defined once. */
 
 /** @} */
+
+/** @internal
+	@brief strerror routine for generic errors.
+
+	Should only be called from the library's strerror function for all errors
+	that are not defined specifically by the library itself.
+*/
+T3_SHARED_LOCAL const char *t3_shared_strerror_base(int error);
 
 #endif
