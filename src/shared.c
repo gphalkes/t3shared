@@ -4,7 +4,7 @@
 #include <string.h>
 #include <errno.h>
 
-#ifndef T3_DEBUG
+#ifndef T3_DONT_CHECK_VERSION
 static int static_assert_version_not_0[T3_SHARED_VERSION > 0 ? 1 : -1];
 #endif
 
