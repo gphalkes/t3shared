@@ -1,0 +1,15 @@
+The Tilde Terminal Toolkit (T3) is a set of libraries for creating terminal
+programs. It was originally created to support the Tilde terminal text editor,
+but these libraries can also be used to create other terminal-based programs.
+The toolkit consists of the following libraries:
+
+libt3window: provides functions for manipulating the terminal and for creating
+  (possibly overlapping) windows on a terminal. libt3window can be used instead
+  of (n)curses for drawing on the terminal.
+libt3key: provides functions for retrieving the character sequences used by
+  terminals to represent keys pressed by the user. The database contains much
+  more extensive information than the terminfo database.
+libt3unicode: provides functions for using and manipulating UTF-8 encoded text.
+  The functions provided can convert UTF-8 into separate codepoints,
+  return relevant information about codepoints, and normalize UTF-8 strings.
+
