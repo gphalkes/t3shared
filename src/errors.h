@@ -45,6 +45,9 @@
 #define T3_ERR_TERMINAL_TOO_LIMITED (-121)
 /** Error code: no terminal given and @c TERM environment variable not set. */
 #define T3_ERR_NO_TERM (-120)
+
+/** Warning code: the smallest value returned as warning. */
+#define T3_WARN_MIN (-16)
 #endif
 /*@}*/
 

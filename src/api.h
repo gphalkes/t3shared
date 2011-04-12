@@ -39,7 +39,7 @@
 
 #ifndef _T3_BOOL
 #define _T3_BOOL
-/** Boolean type that does not clash with C++ or C99 bool. */
+/** Boolean type that does not clash with C++ or C99 bool. @ingroup t3shared_other */
 typedef enum {
 	t3_false, /**< False */
 	t3_true /**< True */
