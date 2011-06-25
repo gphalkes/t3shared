@@ -35,7 +35,6 @@
 #else
 	#define T3_SHARED_API T3_SHARED_IMPORT
 #endif
-#define T3_SHARED_STATIC T3_SHARED_LOCAL
 
 #ifndef _T3_BOOL
 #define _T3_BOOL
