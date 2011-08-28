@@ -51,5 +51,7 @@ const char *t3_shared_strerror_base(int error) {
 			return _("terminal provides too limited functionality");
 		case T3_ERR_NO_TERM:
 			return _("no terminal given and TERM environment variable not set");
+		case T3_ERR_INTERNAL:
+			return _("internal error");
 	}
 }
