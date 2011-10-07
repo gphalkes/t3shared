@@ -1,10 +1,10 @@
 #!/bin/bash
 
 cd `dirname "$0"`/..
-for i in edit key window unicode widget t3config ; do
+for i in edit key window unicode widget config highlight; do
 	[ -d "$i" ] && continue
 
-	hg clone "sftp://www.ghalkes.nl/hgrepos/$i" ${i#t3}
+	hg clone "sftp://www.ghalkes.nl/hgrepos/t3/$i"
 done
 
 if ! [ -L makesys ] ; then
