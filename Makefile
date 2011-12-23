@@ -1,5 +1,5 @@
 
-DIRS := ../../transcript ../config ../highlight ../key ../unicode ../window ../widget ../edit
+DIRS := ../../transcript ../config ../highlight ../key ../window ../widget ../edit
 TARGETS := $(foreach DIR,$(DIRS), $(shell $(MAKE) -q -C $(DIR)/src >/dev/null || echo $(DIR)))
 
 $(warning TARGETS: $(TARGETS))

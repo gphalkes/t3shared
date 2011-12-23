@@ -9,7 +9,4 @@ libt3window: provides functions for manipulating the terminal and for creating
 libt3key: provides functions for retrieving the character sequences used by
   terminals to represent keys pressed by the user. The database contains much
   more extensive information than the terminfo database.
-libt3unicode: provides functions for using and manipulating UTF-8 encoded text.
-  The functions provided can convert UTF-8 into separate codepoints,
-  return relevant information about codepoints, and normalize UTF-8 strings.
 
