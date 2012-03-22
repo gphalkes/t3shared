@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd `dirname "$0"`/..
-for i in makesys shared key window widget config highlight edit testenv ; do
+for i in makesys shared config key highlight window widget edit testenv ; do
 	[ -d "$i" ] || continue
 	echo "==== Executing $@ for $i ===="
 	( cd "$i" ; "$@" )
