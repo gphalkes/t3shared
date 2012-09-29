@@ -18,7 +18,11 @@
 #include <errno.h>
 
 #ifndef T3_DONT_CHECK_VERSION
-static int static_assert_version_not_0[T3_SHARED_VERSION > 0 ? 1 : -1];
+/* The array is embedded in a struct, such that compilers don't complain about
+   unused static variables. */
+struct _t3_assert_version_check {
+	int static_assert_version_not_0[T3_SHARED_VERSION > 0 ? 1 : -1];
+};
 #endif
 
 #ifdef USE_GETTEXT
