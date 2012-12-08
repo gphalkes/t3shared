@@ -28,3 +28,5 @@ endif
 
 LCFLAGS += -DT3_$(T3NAME_UPPER)_BUILD_DSO
 LCXXFLAGS += -DT3_$(T3NAME_UPPER)_BUILD_DSO
+CFLAGS += -I../include
+CXXFLAGS += -I../include
