@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ $# -eq 0 ] ; then
-	TESTS="config key highlight window widget edit"
+	TESTS="config key highlight window widget tilde"
 else
 	TESTS="$*"
 fi

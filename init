@@ -1,15 +1,11 @@
 #!/bin/bash
 
-cd `dirname "$0"`/..
-for i in edit key window widget config highlight testenv; do
+cd "$(dirname "$0")"
+URL=$(git remote -v | grep '^origin ' | grep '\(fetch\)' | sed -r 's/^origin ([^ ]+) .*/\1/')
+
+cd ..
+for i in tilde key window widget config highlight makesys ; do
 	[ -d "$i" ] && continue
 
-	hg clone "sftp://www.ghalkes.nl/hgrepos/t3/$i"
+	git clone "$URL/$i"
 done
-
-if ! [ -L makesys ] ; then
-	if ! [ -d ../makesys ] ; then
-		( cd .. ; hg clone sftp://www.ghalkes.nl/hgrepos/makesys )
-	fi
-	ln -s ../makesys .
-fi
