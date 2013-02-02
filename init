@@ -1,11 +1,12 @@
 #!/bin/bash
 
 cd "$(dirname "$0")"
-URL=$(git remote -v | grep '^origin ' | grep '\(fetch\)' | sed -r 's/^origin ([^ ]+) .*/\1/')
+URL=$(git config remote.origin.url)
+URL=${URL%/*}/
 
 cd ..
 for i in tilde t3key t3window t3widget t3config t3highlight makesys ; do
 	[ -d "$i" ] && continue
 
-	git clone "$URL/$i"
+	git clone "$URL/$i.git"
 done
