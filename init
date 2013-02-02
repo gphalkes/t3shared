@@ -4,7 +4,7 @@ cd "$(dirname "$0")"
 URL=$(git remote -v | grep '^origin ' | grep '\(fetch\)' | sed -r 's/^origin ([^ ]+) .*/\1/')
 
 cd ..
-for i in tilde key window widget config highlight makesys ; do
+for i in tilde t3key t3window t3widget t3config t3highlight makesys ; do
 	[ -d "$i" ] && continue
 
 	git clone "$URL/$i"

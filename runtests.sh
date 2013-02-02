@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ $# -eq 0 ] ; then
-	TESTS="config key highlight window widget tilde"
+	TESTS="t3config t3key t3highlight t3window t3widget tilde"
 else
 	TESTS="$*"
 fi
