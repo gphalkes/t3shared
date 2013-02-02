@@ -1,12 +1,21 @@
-The Tilde Terminal Toolkit (T3) is a set of libraries for creating terminal
+This repository contains some code shared by the Tilde Terminal Toolkit (T3)
+and scripts to easily work with T3 and tilde as a whole. To check out T3 and
+Tilde, first check out the t3shared repository, and then run the init program
+to check out all the other repositories. Then, from the directory containing
+the t3shared directory, you can run "./t3shared/doall make -C src" to build all
+the libraries and Tilde in the correct order.
+
+
+The Tilde Terminal Toolkit is a set of libraries for creating terminal
 programs. It was originally created to support the Tilde terminal text editor,
 but these libraries can also be used to create other terminal-based programs.
 The toolkit consists of the following libraries:
 
-libt3window: provides functions for manipulating the terminal and for creating
-  (possibly overlapping) windows on a terminal. libt3window can be used instead
-  of (n)curses for drawing on the terminal.
-libt3key: provides functions for retrieving the character sequences used by
-  terminals to represent keys pressed by the user. The database contains much
-  more extensive information than the terminfo database.
+libt3config:    A library for reading and writing configuration files.
+libt3highlight: A library for syntax highlighting different types of text files.
+libt3key:       A library and database with escape sequence to key symbol
+                mappings.
+libt3widget:    A library of widgets and dialogs to facilitate construction of
+                easy-to-use terminal-based programs.
+libt3window:    A library providing a windowing abstraction on terminals.
 
