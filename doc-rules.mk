@@ -16,11 +16,17 @@ doxygen: doxygen.conf DoxygenLayout.xml
 doxygen.conf: $(T3PATH)/doc/doxygen.conf
 	sed 's/<NAME>/libt3$(T3NAME)/g;s/<UNAME>/$(T3UNAME)/g;s/<DEFINITIONS>/$(DOXYGENDEFS)/g' '$<' > '$@'
 	if [ $(T3CXX) -ne 0 ] ; then sed -r -i '/^(EXTRACT_STATIC|SHOW_NAMESPACES)/s/NO/YES/;/^(OPTIMIZE_OUTPUT_FOR_C|HIDE_UNDOC_(CLASSES|MEMBERS))/s/YES/NO/;' $@ ; fi
+	if [ -f format.md ] ; then sed -i 's/main_doc.h/main_doc.h format.md/g' doxygen.conf ; fi
 
 DoxygenLayout.xml: $(T3PATH)/doc/DoxygenLayout.xml
 	cp '$<' '$@'
 
 clean::
 	rm -rf $(T3DOCS) API 2> /dev/null
+
+upload: doxygen
+	find API -type f -exec chmod 0644 '{}' ';'
+	find API -type d -exec chmod 0755 '{}' ';'
+	rsync -arv --delete API/ www.ghalkes.nl:os.ghalkes.nl/doc/libt3$(T3NAME)/
 
 .PHONY: clean doxygen
