@@ -15,7 +15,7 @@ PKG=${1%%-*}
 PKG=${PKG##*/}
 
 case $PKG in
-	libt3config|libt3highlight|libt3key|libt3widget|libt3window)
+	libt3config|libt3highlight|libt3key|libt3widget|libt3window|libtranscript)
 		;;
 	*)
 		echo "Unknown package $PKG for upload"
@@ -26,10 +26,11 @@ esac
 TEMPDIR="$(mktemp -d --tmpdir uploadXXXXXX)"
 pushd "$TEMPDIR" >/dev/null || die "cd to tempdir"
 tar xf "$TAR"
+( cd "$PKG"*/doc && doxygen doxygen.conf )
 mv "$PKG"*/doc/API "$PKG"
 chmod -R go+r "$PKG"
 find "$PKG" -type f -exec chmod 0644 '{}' ';'
 find "$PKG" -type d -exec chmod 0755 '{}' ';'
-rsync -arv --delete "$PKG" www.ghalkes.nl:os.ghalkes.nl/t3/doc/
+rsync -arv --delete "$PKG" www.ghalkes.nl:os.ghalkes.nl/doc/
 popd >/dev/null || die "popd from tempdir"
 rm -rf "$TEMPDIR"
