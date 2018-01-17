@@ -1,9 +1,22 @@
 #!/bin/bash
 
+unset STOP_ON_ERROR
+NON_SOURCE="makesys t3shared"
+while true ; do
+	case $1 in
+		--stop-on-error) STOP_ON_ERROR=1 ; shift ;;
+		--skip-non-source) unset NON_SOURCE ; shift ;;
+		*) break ;;
+	esac
+done
+
 cd `dirname "$0"`/..
-for i in makesys t3shared transcript t3config t3key t3highlight t3window t3widget tilde ; do
+for i in $NON_SOURCE transcript t3config t3key t3highlight t3window t3widget tilde ; do
 	[ -d "$i" ] || continue
 	echo "==== Executing $@ for $i ===="
 	( cd "$i" ; "$@" )
+	RESULT=$?
+	if [[ "$RESULT" -ne 0 ]] && [[ "$STOP_ON_ERROR" = 1 ]] ; then
+		exit "$RESULT"
+	fi
 done
-
