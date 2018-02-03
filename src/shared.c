@@ -21,7 +21,7 @@
 /* The array is embedded in a struct, such that compilers don't complain about
    unused static variables. */
 struct _t3_assert_version_check {
-	int static_assert_version_not_0[T3_SHARED_VERSION > 0 ? 1 : -1];
+  int static_assert_version_not_0[T3_SHARED_VERSION > 0 ? 1 : -1];
 };
 #endif
 
@@ -33,29 +33,29 @@ struct _t3_assert_version_check {
 #endif
 
 const char *t3_shared_strerror_base(int error) {
-	switch (error) {
-		case T3_ERR_SUCCESS:
-			return _("success");
-		case T3_ERR_ERRNO:
-			return strerror(errno);
-		case T3_ERR_EOF:
-			return _("end of file");
-		default: /* FALLTHROUGH */
-		case T3_ERR_UNKNOWN:
-			return _("unknown error");
-		case T3_ERR_BAD_ARG:
-			return _("bad argument passed to function");
-		case T3_ERR_OUT_OF_MEMORY:
-			return _("out of memory");
-		case T3_ERR_TERMINFODB_NOT_FOUND:
-			return _("no information found in terminfo database for terminal");
-		case T3_ERR_HARDCOPY_TERMINAL:
-			return _("terminal is a hard-copy terminal");
-		case T3_ERR_TERMINAL_TOO_LIMITED:
-			return _("terminal provides too limited functionality");
-		case T3_ERR_NO_TERM:
-			return _("no terminal given and TERM environment variable not set");
-		case T3_ERR_INTERNAL:
-			return _("internal error");
-	}
+  switch (error) {
+    case T3_ERR_SUCCESS:
+      return _("success");
+    case T3_ERR_ERRNO:
+      return strerror(errno);
+    case T3_ERR_EOF:
+      return _("end of file");
+    default: /* FALLTHROUGH */
+    case T3_ERR_UNKNOWN:
+      return _("unknown error");
+    case T3_ERR_BAD_ARG:
+      return _("bad argument passed to function");
+    case T3_ERR_OUT_OF_MEMORY:
+      return _("out of memory");
+    case T3_ERR_TERMINFODB_NOT_FOUND:
+      return _("no information found in terminfo database for terminal");
+    case T3_ERR_HARDCOPY_TERMINAL:
+      return _("terminal is a hard-copy terminal");
+    case T3_ERR_TERMINAL_TOO_LIMITED:
+      return _("terminal provides too limited functionality");
+    case T3_ERR_NO_TERM:
+      return _("no terminal given and TERM environment variable not set");
+    case T3_ERR_INTERNAL:
+      return _("internal error");
+  }
 }

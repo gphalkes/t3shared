@@ -14,34 +14,36 @@
 #ifndef T3_SHARED_API_H
 #define T3_SHARED_API_H
 
+/* clang-format off */
 #if defined(_WIN32) || defined(__CYGWIN__)
-	#define T3_SHARED_EXPORT __declspec(dllexport)
-	#define T3_SHARED_IMPORT __declspec(dllimport)
-	#define T3_SHARED_LOCAL
+  #define T3_SHARED_EXPORT __declspec(dllexport)
+  #define T3_SHARED_IMPORT __declspec(dllimport)
+  #define T3_SHARED_LOCAL
 #else
-	#if __GNUC__ >= 4 || defined(__clang__)
-		#define T3_SHARED_EXPORT __attribute__((visibility("default")))
-		#define T3_SHARED_IMPORT __attribute__((visibility("default")))
-		#define T3_SHARED_LOCAL __attribute__((visibility("hidden")))
-	#else
-		#define T3_SHARED_EXPORT
-		#define T3_SHARED_IMPORT
-		#define T3_SHARED_LOCAL
-	#endif
+  #if __GNUC__ >= 4 || defined(__clang__)
+    #define T3_SHARED_EXPORT __attribute__((visibility("default")))
+    #define T3_SHARED_IMPORT __attribute__((visibility("default")))
+    #define T3_SHARED_LOCAL __attribute__((visibility("hidden")))
+  #else
+    #define T3_SHARED_EXPORT
+    #define T3_SHARED_IMPORT
+    #define T3_SHARED_LOCAL
+  #endif
 #endif
 
 #ifdef T3_SHARED_BUILD_DSO
-	#define T3_SHARED_API T3_SHARED_EXPORT
+  #define T3_SHARED_API T3_SHARED_EXPORT
 #else
-	#define T3_SHARED_API T3_SHARED_IMPORT
+  #define T3_SHARED_API T3_SHARED_IMPORT
 #endif
+/* clang-format on */
 
 #ifndef _T3_BOOL
 #define _T3_BOOL
 /** Values for @c t3_bool, a boolean type that does not clash with C++ or C99 bool. @ingroup t3shared_other */
 enum {
-	t3_false, /**< False */
-	t3_true /**< True */
+  t3_false, /**< False */
+  t3_true /**< True */
 };
 /** A boolean type that does not clash with C++ or C99 bool. @ingroup t3shared_other */
 typedef char t3_bool;

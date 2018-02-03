@@ -59,10 +59,10 @@
 /** @} */
 
 /** @internal
-	@brief strerror routine for generic errors.
+    @brief strerror routine for generic errors.
 
-	Should only be called from the library's strerror function for all errors
-	that are not defined specifically by the library itself.
+    Should only be called from the library's strerror function for all errors
+    that are not defined specifically by the library itself.
 */
 T3_SHARED_LOCAL const char *t3_shared_strerror_base(int error);
 
