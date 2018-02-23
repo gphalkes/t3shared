@@ -28,11 +28,3 @@ endif
 
 LCFLAGS += -DT3_$(T3NAME_UPPER)_BUILD_DSO
 LCXXFLAGS += -DT3_$(T3NAME_UPPER)_BUILD_DSO
-CFLAGS += -I../../t3shared/include
-CXXFLAGS += -I../../t3shared/include
-T3LDFLAGS.t3config = $(call L,../../t3config/src/.libs)
-T3LDFLAGS.t3highlight = $(call L,../../t3highlight/src/.libs)
-T3LDFLAGS.t3key = $(call L,../../t3key/src/.libs)
-T3LDFLAGS.t3window = $(call L,../../t3window/src/.libs)
-T3LDFLAGS.t3widget = $(call L,../../t3widget/src/.libs)
-T3LDFLAGS.transcript = $(call L, ../../transcript/src/.libs)
